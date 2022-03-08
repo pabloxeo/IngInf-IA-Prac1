@@ -6,7 +6,7 @@ using namespace std;
 
 Action ComportamientoJugador::think(Sensores sensores){
 
-	Action accion = actIDLE;
+	Action accion = actFORWARD;
 
 	cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC << " ";
 	switch(sensores.sentido){
