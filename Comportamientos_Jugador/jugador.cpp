@@ -8,27 +8,17 @@ Action ComportamientoJugador::think(Sensores sensores){
 
 	Action accion = actFORWARD;
 
-	cout << "Posicion: fila " << sensores.posF << " columna " << sensores.posC << " ";
-	switch(sensores.sentido){
-		case 0: cout << "Norte" << endl; break;
-		case 1: cout << "Este" << endl; break;
-		case 2: cout << "Sur " << endl; break;
-		case 3: cout << "Oeste" << endl; break;
+	if(sensores.terreno[2] != 'p' and sensores.terreno[2] != 'M')
+	  accion = actFORWARD;
+	else if(ultVezDcha){
+	  accion = actTURN_L;
+	  ultVezDcha = true;
 	}
-	cout << "Terreno: ";
-	for (int i=0; i<sensores.terreno.size(); i++)
-		cout << sensores.terreno[i];
-	cout << endl;
+	else{
+	  accion = actTURN_R;
+	  ultVezDcha = true;
+	}
 
-	cout << "Superficie: ";
-	for (int i=0; i<sensores.superficie.size(); i++)
-		cout << sensores.superficie[i];
-	cout << endl;
-
-	cout << "Colisión: " << sensores.colision << endl;
-	cout << "Reset: " << sensores.reset << endl;
-	cout << "Vida: " << sensores.vida << endl;
-	cout << endl;
 
 
 	// Determinar el efecto de la ultima accion enviada

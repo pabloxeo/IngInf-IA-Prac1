@@ -22,6 +22,8 @@ class ComportamientoJugador : public Comportamiento{
   
   // Declarar aquí las variables de estado
 
+  bool ultVezDcha = false;
+
 };
 
 #endif
