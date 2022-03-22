@@ -30,6 +30,7 @@ Action ComportamientoJugador::think(Sensores sensores){
 	if(sensores.terreno[0] == 'G' and !bien_situado){
 		fil = sensores.posF;
 		col = sensores.posC;
+		brujula = sensores.sentido;
 		bien_situado = true;
 	}
 	if (bien_situado){
@@ -53,3 +54,8 @@ Action ComportamientoJugador::think(Sensores sensores){
 int ComportamientoJugador::interact(Action accion, int valor){
   return false;
 }
+/*
+git add . 
+git commit -m "Cambiando el enlace del botón"
+git push origin main 
+*/
