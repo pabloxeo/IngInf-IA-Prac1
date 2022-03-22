@@ -37,12 +37,17 @@ Action ComportamientoJugador::think(Sensores sensores){
 		mapaResultado[fil][col] = sensores.terreno[0];
 	}
 //Decidir la nueva accion
-	if((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'J') and sensores.superficie[2] == '_'){
+	if((sensores.terreno[2] == 'T' or sensores.terreno[2] == 'S' or sensores.terreno[2] == 'G' or sensores.terreno[2] == 'J' or sensores.terreno[2] == 'K' or sensores.terreno[2] == 'D' or (zapas && sensores.terreno[2] == 'B') or (biki && sensores.terreno[2] == 'A')) and sensores.superficie[2] == '_'){
 		accion = actFORWARD;
 	}else if (!girarDcha){
 		accion = actTURN_L;
 	}else{
 		accion = actTURN_R;
+	}
+	if(sensores.terreno[0] == 'D'){
+			zapas = true;
+	}else if(sensores.terreno[0] == 'K'){
+			biki = true;
 	}
 
 
