@@ -13,10 +13,21 @@ class ComportamientoJugador : public Comportamiento{
       fil = col = 99;
       brujula = 0;
       ultimaAccion = actIDLE;
-      girarDcha = false;
       bien_situado = false;
-      zapas = false;
-      biki = false;
+      tiempo = 0;
+      zapatillas = false;
+      bikini = false;
+      girarDcha = false;
+      tiempo_desc = 80;
+      north = 0;
+      east = 0;
+      south = 0;
+      west = 0;
+      for(int i = 0; i < 200; ++i){
+        for(int j = 0; j< 200; ++j){
+          mover[i][j] = 0;
+        }
+      }
     }
 
     ComportamientoJugador(const ComportamientoJugador & comport) : Comportamiento(comport){}
@@ -28,8 +39,8 @@ class ComportamientoJugador : public Comportamiento{
   private:
   
   // Declarar aquí las variables de estado
-  int fil, col, brujula;
-  bool girarDcha, bien_situado, zapas, biki;
+  int fil, col, brujula, mover[200][200], tiempo, tiempo_desc, west, north, south, east;
+  bool  bien_situado, zapatillas, bikini, front, rear, izqd, dcha, girarDcha;
   Action ultimaAccion;
 
 };
